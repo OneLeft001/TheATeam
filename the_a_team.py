@@ -55,11 +55,12 @@ def main():
     omit_random_line(lines)
 
     #Display altered text
+    print()
     display_banner(banner_text_two, banner_symbol, banner_symbol_length)
-
     for i, j in enumerate(lines):
-        print(f"Index-{i}: {j}")
-    
+        i += 1
+        print(f"{i}: {j}")
+        i -= 1
 
     
 
