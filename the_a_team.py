@@ -17,14 +17,12 @@ def lines_to_upper(lines, uppercase_threshold):
         if(len(j) <= uppercase_threshold):
             lines[i] = j.upper()
     
-    '''counter = 0
-    for i in lines:
-        if(len(i) <= uppercase_threshold):
-            lines[counter] = i.upper()
-
-        counter += 1
-'''
-    
+def omit_random_line(lines):
+    index_margin = 1
+    random_index = random.randint(len(lines)-len(lines), len(lines)-index_margin)
+    for i, j in enumerate(lines):
+        if(random_index == i):
+            lines[i] = ""
 
 
 def main():
@@ -53,8 +51,14 @@ def main():
     #Upper lines    
     lines_to_upper(lines, uppercase_threshold)
 
+    #Remove line
+    omit_random_line(lines)
+
+    #Display altered text
+    display_banner(banner_text_two, banner_symbol, banner_symbol_length)
+
     for i, j in enumerate(lines):
-        print(j)
+        print(f"Index-{i}: {j}")
     
 
     
