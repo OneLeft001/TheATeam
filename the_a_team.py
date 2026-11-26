@@ -12,10 +12,12 @@ def text_to_list(lines_list, text_content):
             break
         lines_list.append(line.strip())
 
-def lines_to_upper(lines, uppercase_threshold):
+def lines_to_lower_and_upper(lines, uppercase_threshold):
     for i, j in enumerate(lines):
         if(len(j) <= uppercase_threshold):
             lines[i] = j.upper()
+        else:
+            lines[i] = j.lower()
     
 def omit_random_line(lines):
     index_margin = 1
@@ -49,7 +51,7 @@ def main():
     text_to_list(lines, text_content)
 
     #Upper lines    
-    lines_to_upper(lines, uppercase_threshold)
+    lines_to_lower_and_upper(lines, uppercase_threshold)
 
     #Remove line
     omit_random_line(lines)
