@@ -1,4 +1,4 @@
-import csv
+import csv, random
 
 def display_banner(banner_phrase, symbol, length):
     print(symbol * length)
@@ -13,13 +13,17 @@ def text_to_list(lines_list, text_content):
         lines_list.append(line.strip())
 
 def lines_to_upper(lines, uppercase_threshold):
-    counter = 0
+    for i, j in enumerate(lines):
+        if(len(j) <= uppercase_threshold):
+            lines[i] = j.upper()
+    
+    '''counter = 0
     for i in lines:
         if(len(i) <= uppercase_threshold):
             lines[counter] = i.upper()
 
         counter += 1
-
+'''
     
 
 
@@ -49,8 +53,9 @@ def main():
     #Upper lines    
     lines_to_upper(lines, uppercase_threshold)
 
-    for i in lines:
-        print(f"{len(i)} : {i}")
+    for i, j in enumerate(lines):
+        print(j)
+    
 
     
 
